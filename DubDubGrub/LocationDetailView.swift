@@ -72,15 +72,17 @@ struct LocationDetailView: View {
                 .bold()
                 .font(.title2)
             
-            LazyVGrid(columns: columns) {
-                FirstNameAvatarView(firstName: "Pablo")
-                FirstNameAvatarView(firstName: "Pablo")
-                FirstNameAvatarView(firstName: "Pablo")
-                FirstNameAvatarView(firstName: "Pablo")
-                FirstNameAvatarView(firstName: "Pablo")
+            ScrollView {
+                LazyVGrid(columns: columns) {
+                    FirstNameAvatarView(firstName: "Pablo")
+                    FirstNameAvatarView(firstName: "Pablo")
+                    FirstNameAvatarView(firstName: "Pablo")
+                    FirstNameAvatarView(firstName: "Pablo")
+                    FirstNameAvatarView(firstName: "Pablo")
+                    FirstNameAvatarView(firstName: "Pablo")
+                    FirstNameAvatarView(firstName: "Pablo")
+                }
             }
-            
-            Spacer()
         }
         .navigationTitle("Location Name")
         .navigationBarTitleDisplayMode(.inline)
@@ -89,11 +91,10 @@ struct LocationDetailView: View {
 
 struct LocationDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
+        NavigationView {
             LocationDetailView()
                 .preferredColorScheme(.dark)
         }
-            
     }
 }
 
