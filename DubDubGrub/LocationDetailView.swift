@@ -12,23 +12,15 @@ struct LocationDetailView: View {
     
     var body: some View {
         VStack(spacing: 16) {
-            Image("default-banner-asset")
-                .resizable()
-                .scaledToFill()
-                .frame(height: 120)
+            BannerImage(imageName: "default-banner-asset")
             
             HStack {
-                Label("123 Main Street", systemImage: "mappin.and.ellipse")
-                    .font(.caption)
-                    .foregroundColor(.secondary)
+                AddressView(address: "123 Main Street")
                 Spacer()
             }
             .padding(.horizontal)
             
-            Text("This is a test description. This is a test description. This is a test description. This is a test description. This is a test description.")
-                .lineLimit(3)
-                .minimumScaleFactor(0.8)
-                .padding(.horizontal)
+            DescriptionView(text: "This is a test description. This is a test description. This is a test description. This is a test description. This is a test description.")
             
             ZStack {
                 Capsule()
@@ -129,5 +121,37 @@ struct FirstNameAvatarView: View {
                 .lineLimit(1)
                 .minimumScaleFactor(0.8)
         }
+    }
+}
+
+struct BannerImage: View {
+    let imageName: String
+    
+    var body: some View {
+        Image(imageName)
+            .resizable()
+            .scaledToFill()
+            .frame(height: 120)
+    }
+}
+
+struct AddressView: View {
+    let address: String
+    
+    var body: some View {
+        Label(address, systemImage: "mappin.and.ellipse")
+            .font(.caption)
+            .foregroundColor(.secondary)
+    }
+}
+
+struct DescriptionView: View {
+    let text: String
+    
+    var body: some View {
+        Text(text)
+            .lineLimit(3)
+            .minimumScaleFactor(0.8)
+            .padding(.horizontal)
     }
 }
