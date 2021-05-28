@@ -17,28 +17,21 @@ struct ProfileView: View {
         VStack(spacing: 16) {
                 ZStack {
                     Color(.secondarySystemBackground)
+                        .cornerRadius(16)
                         .layoutPriority(-1)
-                        .clipShape(RoundedRectangle(cornerRadius: 16))
                     
                     HStack(spacing: 16) {
                         ZStack(alignment: .bottom) {
                             AvatarView(size: 84)
-                            Image(systemName: "square.and.pencil")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 14)
-                                .foregroundColor(.white)
-                                .padding(.bottom, 4)
+                            EditImage()
                         }
                         
                         VStack(alignment: .leading, spacing: 0) {
                             TextField("First Name", text: $firstName)
-                                .font(.system(size: 32, weight: .bold))
-                                .minimumScaleFactor(0.8)
+                            
                             
                             TextField("Last Name", text: $lastName)
-                                .font(.system(size: 32, weight: .bold))
-                                .minimumScaleFactor(0.8)
+                                .profileNameStyle()
                             
                             TextField("Company Name", text: $companyName)
                         }
@@ -47,10 +40,7 @@ struct ProfileView: View {
                 }
                 
                 HStack {
-                    Text("Bio: \(remainingCharactersText) characters remain")
-                        .font(.callout)
-                        .bold()
-                        .foregroundColor(.secondary)
+                    RemainingCharactersView(currentCount: bio.count)
                     
                     Spacer()
                     
@@ -71,23 +61,11 @@ struct ProfileView: View {
                 Button {
                     
                 } label: {
-                    Text("Save Profile")
-                        .foregroundColor(.white)
-                        .bold()
-                        .frame(width: 280, height: 44)
-                        .background(Color.brandPrimary)
-                        .cornerRadius(8)
+                    DDGButton(title: "Save Profile")
                 }
             }
             .padding(.horizontal)
             .navigationTitle("Profile")
-    }
-    
-    private var remainingCharacters: Int { 100 - bio.count }
-    
-    private var remainingCharactersText: Text {
-        Text("\(remainingCharacters)")
-            .foregroundColor(remainingCharacters >= 0 ? .brandPrimary : .red)
     }
 }
 
@@ -97,5 +75,35 @@ struct ProfileView_Previews: PreviewProvider {
             ProfileView()
                 .preferredColorScheme(.dark)
         }
+    }
+}
+
+struct EditImage: View {
+    var body: some View {
+        Image(systemName: "square.and.pencil")
+            .resizable()
+            .scaledToFit()
+            .frame(width: 14)
+            .foregroundColor(.white)
+            .padding(.bottom, 4)
+    }
+}
+
+struct RemainingCharactersView: View {
+    let currentCount: Int
+    let maxCount: Int = 100
+    
+    var body: some View {
+        Group {
+            Text("Bio: ")
+            +
+            Text("\(maxCount - currentCount)")
+                .bold()
+                .foregroundColor(currentCount <= maxCount ? .brandPrimary : .grubRed)
+            +
+            Text(" characters remain")
+        }
+        .font(.callout)
+        .foregroundColor(.secondary)
     }
 }

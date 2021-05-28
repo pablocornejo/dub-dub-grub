@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF0BA6782660785A004FBDF7 /* DDGButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0BA6772660785A004FBDF7 /* DDGButton.swift */; };
+		CF2B811B265F1667001E1916 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2B811A265F1667001E1916 /* LocationCell.swift */; };
+		CF2B811D265F16B8001E1916 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2B811C265F16B8001E1916 /* AvatarView.swift */; };
+		CF2B811F265FD151001E1916 /* CustomModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2B811E265FD151001E1916 /* CustomModifiers.swift */; };
+		CF2B8121265FD19F001E1916 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2B8120265FD19F001E1916 /* View+Ext.swift */; };
 		CF415258265B198900266F26 /* DubDubGrubApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF415257265B198900266F26 /* DubDubGrubApp.swift */; };
 		CF41525C265B198C00266F26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF41525B265B198C00266F26 /* Assets.xcassets */; };
 		CF41525F265B198C00266F26 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF41525E265B198C00266F26 /* Preview Assets.xcassets */; };
@@ -20,6 +25,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CF0BA6772660785A004FBDF7 /* DDGButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDGButton.swift; sourceTree = "<group>"; };
+		CF2B811A265F1667001E1916 /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
+		CF2B811C265F16B8001E1916 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
+		CF2B811E265FD151001E1916 /* CustomModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModifiers.swift; sourceTree = "<group>"; };
+		CF2B8120265FD19F001E1916 /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
 		CF415254265B198900266F26 /* DubDubGrub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DubDubGrub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF415257265B198900266F26 /* DubDubGrubApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DubDubGrubApp.swift; sourceTree = "<group>"; };
 		CF41525B265B198C00266F26 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -47,6 +57,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CF0BA67926607A4E004FBDF7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		CF41524B265B198900266F26 = {
 			isa = PBXGroup;
 			children = (
@@ -67,17 +84,23 @@
 		CF415256265B198900266F26 /* DubDubGrub */ = {
 			isa = PBXGroup;
 			children = (
+				CF0BA67926607A4E004FBDF7 /* Extensions */,
 				CF415266265B1A0F00266F26 /* DubDubGrub.entitlements */,
 				CF415257265B198900266F26 /* DubDubGrubApp.swift */,
 				CF41525B265B198C00266F26 /* Assets.xcassets */,
 				CF415260265B198C00266F26 /* Info.plist */,
 				CF41525D265B198C00266F26 /* Preview Content */,
 				CF41526A265B1CED00266F26 /* Color+Ext.swift */,
+				CF2B8120265FD19F001E1916 /* View+Ext.swift */,
 				CF41526C265B1D3200266F26 /* AppTabView.swift */,
 				CF41526E265B1D6E00266F26 /* LocationMapView.swift */,
 				CF415270265B1D8A00266F26 /* LocationListView.swift */,
 				CF415272265B1D9A00266F26 /* ProfileView.swift */,
 				CF415274265B41F000266F26 /* LocationDetailView.swift */,
+				CF2B811A265F1667001E1916 /* LocationCell.swift */,
+				CF2B811C265F16B8001E1916 /* AvatarView.swift */,
+				CF2B811E265FD151001E1916 /* CustomModifiers.swift */,
+				CF0BA6772660785A004FBDF7 /* DDGButton.swift */,
 			);
 			path = DubDubGrub;
 			sourceTree = "<group>";
@@ -168,11 +191,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF415258265B198900266F26 /* DubDubGrubApp.swift in Sources */,
+				CF2B811F265FD151001E1916 /* CustomModifiers.swift in Sources */,
 				CF41526F265B1D6E00266F26 /* LocationMapView.swift in Sources */,
 				CF415271265B1D8A00266F26 /* LocationListView.swift in Sources */,
 				CF415275265B41F000266F26 /* LocationDetailView.swift in Sources */,
 				CF41526D265B1D3300266F26 /* AppTabView.swift in Sources */,
 				CF415273265B1D9A00266F26 /* ProfileView.swift in Sources */,
+				CF2B8121265FD19F001E1916 /* View+Ext.swift in Sources */,
+				CF2B811B265F1667001E1916 /* LocationCell.swift in Sources */,
+				CF0BA6782660785A004FBDF7 /* DDGButton.swift in Sources */,
+				CF2B811D265F16B8001E1916 /* AvatarView.swift in Sources */,
 				CF41526B265B1CED00266F26 /* Color+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
