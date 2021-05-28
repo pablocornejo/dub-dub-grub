@@ -60,8 +60,51 @@
 		CF0BA67926607A4E004FBDF7 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				CF41526A265B1CED00266F26 /* Color+Ext.swift */,
+				CF2B8120265FD19F001E1916 /* View+Ext.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CF0BA67A26607B8F004FBDF7 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				CF41526C265B1D3200266F26 /* AppTabView.swift */,
+				CF41526E265B1D6E00266F26 /* LocationMapView.swift */,
+				CF415270265B1D8A00266F26 /* LocationListView.swift */,
+				CF415274265B41F000266F26 /* LocationDetailView.swift */,
+				CF415272265B1D9A00266F26 /* ProfileView.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		CF0BA67B26607BA6004FBDF7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CF2B811E265FD151001E1916 /* CustomModifiers.swift */,
+				CF0BA67D26607C0F004FBDF7 /* CustomViews */,
+				CF0BA67C26607BF6004FBDF7 /* Cells */,
+				CF0BA67926607A4E004FBDF7 /* Extensions */,
+				CF0BA67A26607B8F004FBDF7 /* Screens */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CF0BA67C26607BF6004FBDF7 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				CF2B811A265F1667001E1916 /* LocationCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		CF0BA67D26607C0F004FBDF7 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				CF2B811C265F16B8001E1916 /* AvatarView.swift */,
+				CF0BA6772660785A004FBDF7 /* DDGButton.swift */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		CF41524B265B198900266F26 = {
@@ -84,23 +127,12 @@
 		CF415256265B198900266F26 /* DubDubGrub */ = {
 			isa = PBXGroup;
 			children = (
-				CF0BA67926607A4E004FBDF7 /* Extensions */,
+				CF0BA67B26607BA6004FBDF7 /* Views */,
 				CF415266265B1A0F00266F26 /* DubDubGrub.entitlements */,
 				CF415257265B198900266F26 /* DubDubGrubApp.swift */,
 				CF41525B265B198C00266F26 /* Assets.xcassets */,
 				CF415260265B198C00266F26 /* Info.plist */,
 				CF41525D265B198C00266F26 /* Preview Content */,
-				CF41526A265B1CED00266F26 /* Color+Ext.swift */,
-				CF2B8120265FD19F001E1916 /* View+Ext.swift */,
-				CF41526C265B1D3200266F26 /* AppTabView.swift */,
-				CF41526E265B1D6E00266F26 /* LocationMapView.swift */,
-				CF415270265B1D8A00266F26 /* LocationListView.swift */,
-				CF415272265B1D9A00266F26 /* ProfileView.swift */,
-				CF415274265B41F000266F26 /* LocationDetailView.swift */,
-				CF2B811A265F1667001E1916 /* LocationCell.swift */,
-				CF2B811C265F16B8001E1916 /* AvatarView.swift */,
-				CF2B811E265FD151001E1916 /* CustomModifiers.swift */,
-				CF0BA6772660785A004FBDF7 /* DDGButton.swift */,
 			);
 			path = DubDubGrub;
 			sourceTree = "<group>";
