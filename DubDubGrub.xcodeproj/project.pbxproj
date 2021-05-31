@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CF0BA6782660785A004FBDF7 /* DDGButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0BA6772660785A004FBDF7 /* DDGButton.swift */; };
+		CF210B542665A9FE00D7A680 /* DDGLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF210B532665A9FE00D7A680 /* DDGLocation.swift */; };
 		CF2B811B265F1667001E1916 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2B811A265F1667001E1916 /* LocationCell.swift */; };
 		CF2B811D265F16B8001E1916 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2B811C265F16B8001E1916 /* AvatarView.swift */; };
 		CF2B811F265FD151001E1916 /* CustomModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2B811E265FD151001E1916 /* CustomModifiers.swift */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		CF0BA6772660785A004FBDF7 /* DDGButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDGButton.swift; sourceTree = "<group>"; };
+		CF210B532665A9FE00D7A680 /* DDGLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDGLocation.swift; sourceTree = "<group>"; };
 		CF2B811A265F1667001E1916 /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		CF2B811C265F16B8001E1916 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		CF2B811E265FD151001E1916 /* CustomModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModifiers.swift; sourceTree = "<group>"; };
@@ -107,6 +109,14 @@
 			path = CustomViews;
 			sourceTree = "<group>";
 		};
+		CF210B522665A9EF00D7A680 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CF210B532665A9FE00D7A680 /* DDGLocation.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		CF41524B265B198900266F26 = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +137,7 @@
 		CF415256265B198900266F26 /* DubDubGrub */ = {
 			isa = PBXGroup;
 			children = (
+				CF210B522665A9EF00D7A680 /* Model */,
 				CF0BA67B26607BA6004FBDF7 /* Views */,
 				CF415266265B1A0F00266F26 /* DubDubGrub.entitlements */,
 				CF415257265B198900266F26 /* DubDubGrubApp.swift */,
@@ -227,6 +238,7 @@
 				CF41526F265B1D6E00266F26 /* LocationMapView.swift in Sources */,
 				CF415271265B1D8A00266F26 /* LocationListView.swift in Sources */,
 				CF415275265B41F000266F26 /* LocationDetailView.swift in Sources */,
+				CF210B542665A9FE00D7A680 /* DDGLocation.swift in Sources */,
 				CF41526D265B1D3300266F26 /* AppTabView.swift in Sources */,
 				CF415273265B1D9A00266F26 /* ProfileView.swift in Sources */,
 				CF2B8121265FD19F001E1916 /* View+Ext.swift in Sources */,
