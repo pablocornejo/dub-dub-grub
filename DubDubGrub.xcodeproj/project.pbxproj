@@ -10,6 +10,7 @@
 		CF0BA6782660785A004FBDF7 /* DDGButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0BA6772660785A004FBDF7 /* DDGButton.swift */; };
 		CF210B542665A9FE00D7A680 /* DDGLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF210B532665A9FE00D7A680 /* DDGLocation.swift */; };
 		CF210B562665AE0000D7A680 /* DDGProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF210B552665AE0000D7A680 /* DDGProfile.swift */; };
+		CF210B582665AF9300D7A680 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF210B572665AF9300D7A680 /* MockData.swift */; };
 		CF2B811B265F1667001E1916 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2B811A265F1667001E1916 /* LocationCell.swift */; };
 		CF2B811D265F16B8001E1916 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2B811C265F16B8001E1916 /* AvatarView.swift */; };
 		CF2B811F265FD151001E1916 /* CustomModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2B811E265FD151001E1916 /* CustomModifiers.swift */; };
@@ -30,6 +31,7 @@
 		CF0BA6772660785A004FBDF7 /* DDGButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDGButton.swift; sourceTree = "<group>"; };
 		CF210B532665A9FE00D7A680 /* DDGLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDGLocation.swift; sourceTree = "<group>"; };
 		CF210B552665AE0000D7A680 /* DDGProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDGProfile.swift; sourceTree = "<group>"; };
+		CF210B572665AF9300D7A680 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		CF2B811A265F1667001E1916 /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		CF2B811C265F16B8001E1916 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		CF2B811E265FD151001E1916 /* CustomModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModifiers.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 			children = (
 				CF210B532665A9FE00D7A680 /* DDGLocation.swift */,
 				CF210B552665AE0000D7A680 /* DDGProfile.swift */,
+				CF210B572665AF9300D7A680 /* MockData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 				CF2B811F265FD151001E1916 /* CustomModifiers.swift in Sources */,
 				CF41526F265B1D6E00266F26 /* LocationMapView.swift in Sources */,
 				CF415271265B1D8A00266F26 /* LocationListView.swift in Sources */,
+				CF210B582665AF9300D7A680 /* MockData.swift in Sources */,
 				CF415275265B41F000266F26 /* LocationDetailView.swift in Sources */,
 				CF210B562665AE0000D7A680 /* DDGProfile.swift in Sources */,
 				CF210B542665A9FE00D7A680 /* DDGLocation.swift in Sources */,
