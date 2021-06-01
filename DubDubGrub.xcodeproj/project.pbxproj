@@ -13,6 +13,7 @@
 		CF210B582665AF9300D7A680 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF210B572665AF9300D7A680 /* MockData.swift */; };
 		CF210B5B26665C2200D7A680 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF210B5A26665C2200D7A680 /* CloudKitManager.swift */; };
 		CF210B5D26665D1B00D7A680 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF210B5C26665D1B00D7A680 /* Constants.swift */; };
+		CF210B5F2666623A00D7A680 /* AlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF210B5E2666623A00D7A680 /* AlertItem.swift */; };
 		CF2B811B265F1667001E1916 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2B811A265F1667001E1916 /* LocationCell.swift */; };
 		CF2B811D265F16B8001E1916 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2B811C265F16B8001E1916 /* AvatarView.swift */; };
 		CF2B811F265FD151001E1916 /* CustomModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2B811E265FD151001E1916 /* CustomModifiers.swift */; };
@@ -36,6 +37,7 @@
 		CF210B572665AF9300D7A680 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		CF210B5A26665C2200D7A680 /* CloudKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
 		CF210B5C26665D1B00D7A680 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		CF210B5E2666623A00D7A680 /* AlertItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertItem.swift; sourceTree = "<group>"; };
 		CF2B811A265F1667001E1916 /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		CF2B811C265F16B8001E1916 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		CF2B811E265FD151001E1916 /* CustomModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModifiers.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 			children = (
 				CF210B5A26665C2200D7A680 /* CloudKitManager.swift */,
 				CF210B5C26665D1B00D7A680 /* Constants.swift */,
+				CF210B5E2666623A00D7A680 /* AlertItem.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 				CF415271265B1D8A00266F26 /* LocationListView.swift in Sources */,
 				CF210B582665AF9300D7A680 /* MockData.swift in Sources */,
 				CF415275265B41F000266F26 /* LocationDetailView.swift in Sources */,
+				CF210B5F2666623A00D7A680 /* AlertItem.swift in Sources */,
 				CF210B562665AE0000D7A680 /* DDGProfile.swift in Sources */,
 				CF210B542665A9FE00D7A680 /* DDGLocation.swift in Sources */,
 				CF41526D265B1D3300266F26 /* AppTabView.swift in Sources */,
