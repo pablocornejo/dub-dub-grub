@@ -12,13 +12,12 @@ final class LocationMapViewModel: ObservableObject {
     @Published var alertItem: AlertItem?
     @Published var region = MKCoordinateRegion(center: .init(latitude: 37.331516, longitude: -121.891054),
                                                             span: .init(latitudeDelta: 0.01, longitudeDelta: 0.01))
-    @Published var locations: [DDGLocation] = []
     
-    func fetchLocations() {
+    func fetchLocations(for locationManager: LocationManager) {
         CloudKitManager.getLocations { [self] result in
             switch result {
             case .success(let locations):
-                self.locations = locations
+                locationManager.locations = locations
             case .failure(_):
                 alertItem = AlertContext.unableToGetLocations
             }

@@ -9,18 +9,25 @@ import SwiftUI
 import MapKit
 
 struct LocationMapView: View {
+    @EnvironmentObject private var locationManager: LocationManager
     @StateObject private var viewModel = LocationMapViewModel()
     
     var body: some View {
         ZStack(alignment: .top) {
-            Map(coordinateRegion: $viewModel.region)
-                .ignoresSafeArea()
+            Map(coordinateRegion: $viewModel.region, annotationItems: locationManager.locations) { location in
+                MapMarker(coordinate: location.location.coordinate, tint: .brandPrimary)
+            }
+            .ignoresSafeArea()
             
             LogoView()
                 .shadow(radius: 10)
         }
         .alert(item: $viewModel.alertItem) { $0.convertToAlert() }
-        .onAppear { viewModel.fetchLocations() }
+        .onAppear {
+            if locationManager.locations.isEmpty {
+                viewModel.fetchLocations(for: locationManager)
+            }
+        }
     }
 }
 
