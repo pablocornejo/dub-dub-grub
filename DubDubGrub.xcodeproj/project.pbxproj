@@ -29,6 +29,7 @@
 		CF415271265B1D8A00266F26 /* LocationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF415270265B1D8A00266F26 /* LocationListView.swift */; };
 		CF415273265B1D9A00266F26 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF415272265B1D9A00266F26 /* ProfileView.swift */; };
 		CF415275265B41F000266F26 /* LocationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF415274265B41F000266F26 /* LocationDetailView.swift */; };
+		CF9D9FEB26687BA0008ADFFF /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9D9FEA26687BA0008ADFFF /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		CF415270265B1D8A00266F26 /* LocationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListView.swift; sourceTree = "<group>"; };
 		CF415272265B1D9A00266F26 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		CF415274265B41F000266F26 /* LocationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailView.swift; sourceTree = "<group>"; };
+		CF9D9FEA26687BA0008ADFFF /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,7 +136,7 @@
 		CF210B5926665C0300D7A680 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				CF210B5A26665C2200D7A680 /* CloudKitManager.swift */,
+				CF9D9FE926687B82008ADFFF /* Managers */,
 				CF210B5C26665D1B00D7A680 /* Constants.swift */,
 				CF210B5E2666623A00D7A680 /* AlertItem.swift */,
 			);
@@ -196,6 +198,15 @@
 				CF415268265B1A1B00266F26 /* CloudKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CF9D9FE926687B82008ADFFF /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				CF210B5A26665C2200D7A680 /* CloudKitManager.swift */,
+				CF9D9FEA26687BA0008ADFFF /* LocationManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,6 +290,7 @@
 				CF210B542665A9FE00D7A680 /* DDGLocation.swift in Sources */,
 				CF41526D265B1D3300266F26 /* AppTabView.swift in Sources */,
 				CF415273265B1D9A00266F26 /* ProfileView.swift in Sources */,
+				CF9D9FEB26687BA0008ADFFF /* LocationManager.swift in Sources */,
 				CF210B622666693400D7A680 /* LocationMapViewModel.swift in Sources */,
 				CF210B5B26665C2200D7A680 /* CloudKitManager.swift in Sources */,
 				CF2B8121265FD19F001E1916 /* View+Ext.swift in Sources */,
