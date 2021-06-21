@@ -15,11 +15,13 @@ final class LocationMapViewModel: ObservableObject {
     
     func fetchLocations(for locationManager: LocationManager) {
         CloudKitManager.getLocations { [self] result in
-            switch result {
-            case .success(let locations):
-                locationManager.locations = locations
-            case .failure(_):
-                alertItem = AlertContext.unableToGetLocations
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let locations):
+                    locationManager.locations = locations
+                case .failure(_):
+                    alertItem = AlertContext.unableToGetLocations
+                }                
             }
         }
     }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LocationListView: View {
-    @EnvironmentObject var locationManager: LocationManager
+    @EnvironmentObject private var locationManager: LocationManager
     
     var body: some View {
         NavigationView {
