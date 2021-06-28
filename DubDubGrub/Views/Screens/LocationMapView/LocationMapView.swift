@@ -23,9 +23,13 @@ struct LocationMapView: View {
             LogoView(frameWidth: 125)
                 .shadow(radius: 10)
         }
+        .sheet(isPresented: $viewModel.isShowingOnboardingView, onDismiss: viewModel.checkIfLocationServicesIsEnabled) {
+            OnboardingView(isShowingOnboardingView: $viewModel.isShowingOnboardingView)
+        }
         .alert(item: $viewModel.alertItem) { $0.convertToAlert() }
         .onAppear {
-            viewModel.checkIfLocationServicesIsEnabled()
+            viewModel.runStartupChecks()
+            
             if locationManager.locations.isEmpty {
                 viewModel.fetchLocations(for: locationManager)
             }
