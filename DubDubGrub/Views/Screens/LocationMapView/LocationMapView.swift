@@ -20,7 +20,7 @@ struct LocationMapView: View {
             .accentColor(.grubRed)
             .ignoresSafeArea()
             
-            LogoView()
+            LogoView(frameWidth: 125)
                 .shadow(radius: 10)
         }
         .alert(item: $viewModel.alertItem) { $0.convertToAlert() }
@@ -36,14 +36,5 @@ struct LocationMapView: View {
 struct LocationMapView_Previews: PreviewProvider {
     static var previews: some View {
         LocationMapView()
-    }
-}
-
-struct LogoView: View {
-    var body: some View {
-        Image("ddg-map-logo")
-            .resizable()
-            .scaledToFit()
-            .frame(height: 70)
     }
 }
