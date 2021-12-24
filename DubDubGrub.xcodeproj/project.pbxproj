@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CF0BA6782660785A004FBDF7 /* DDGButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0BA6772660785A004FBDF7 /* DDGButton.swift */; };
+		CF1D954727756BA6001F7D50 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1D954627756BA6001F7D50 /* PhotoPicker.swift */; };
 		CF210B542665A9FE00D7A680 /* DDGLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF210B532665A9FE00D7A680 /* DDGLocation.swift */; };
 		CF210B562665AE0000D7A680 /* DDGProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF210B552665AE0000D7A680 /* DDGProfile.swift */; };
 		CF210B582665AF9300D7A680 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF210B572665AF9300D7A680 /* MockData.swift */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		CF0BA6772660785A004FBDF7 /* DDGButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDGButton.swift; sourceTree = "<group>"; };
+		CF1D954627756BA6001F7D50 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		CF210B532665A9FE00D7A680 /* DDGLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDGLocation.swift; sourceTree = "<group>"; };
 		CF210B552665AE0000D7A680 /* DDGProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDGProfile.swift; sourceTree = "<group>"; };
 		CF210B572665AF9300D7A680 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
@@ -127,12 +129,21 @@
 		CF0BA67D26607C0F004FBDF7 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				CF1D954527756B72001F7D50 /* UIKit Components */,
 				CF303E5C268957330009A706 /* Buttons */,
 				CF2B811C265F16B8001E1916 /* AvatarView.swift */,
 				CF0BA6772660785A004FBDF7 /* DDGButton.swift */,
 				CF303E5A2689522B0009A706 /* LogoView.swift */,
 			);
 			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		CF1D954527756B72001F7D50 /* UIKit Components */ = {
+			isa = PBXGroup;
+			children = (
+				CF1D954627756BA6001F7D50 /* PhotoPicker.swift */,
+			);
+			path = "UIKit Components";
 			sourceTree = "<group>";
 		};
 		CF210B522665A9EF00D7A680 /* Model */ = {
@@ -321,6 +332,7 @@
 				CF2B811D265F16B8001E1916 /* AvatarView.swift in Sources */,
 				CF41526B265B1CED00266F26 /* Color+Ext.swift in Sources */,
 				CF303E59268950B90009A706 /* OnboardingView.swift in Sources */,
+				CF1D954727756BA6001F7D50 /* PhotoPicker.swift in Sources */,
 				CF303E5E2689574B0009A706 /* XDismissButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

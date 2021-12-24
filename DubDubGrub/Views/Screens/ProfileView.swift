@@ -12,6 +12,8 @@ struct ProfileView: View {
     @State private var lastName = ""
     @State private var companyName = ""
     @State private var bio = ""
+    @State private var avatar = PlaceholderImage.avatar
+    @State private var isShowingPhotoPicker = false
     
     var body: some View {
         VStack(spacing: 16) {
@@ -22,9 +24,10 @@ struct ProfileView: View {
                     
                     HStack(spacing: 16) {
                         ZStack(alignment: .bottom) {
-                            AvatarView(size: 84)
+                            AvatarView(image: avatar, size: 84)
                             EditImage()
                         }
+                        .onTapGesture { isShowingPhotoPicker = true }
                         
                         VStack(alignment: .leading, spacing: 0) {
                             TextField("First Name", text: $firstName)
@@ -66,6 +69,9 @@ struct ProfileView: View {
             }
             .padding(.horizontal)
             .navigationTitle("Profile")
+            .sheet(isPresented: $isShowingPhotoPicker) {
+                PhotoPicker(image: $avatar)
+            }
     }
 }
 
