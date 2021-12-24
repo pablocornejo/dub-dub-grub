@@ -14,6 +14,7 @@ struct ProfileView: View {
     @State private var bio = ""
     @State private var avatar = PlaceholderImage.avatar
     @State private var isShowingPhotoPicker = false
+    @State private var alertItem: AlertItem?
     
     var body: some View {
         VStack(spacing: 16) {
@@ -31,7 +32,7 @@ struct ProfileView: View {
                         
                         VStack(alignment: .leading, spacing: 0) {
                             TextField("First Name", text: $firstName)
-                            
+                                .profileNameStyle()
                             
                             TextField("Last Name", text: $lastName)
                                 .profileNameStyle()
@@ -62,16 +63,44 @@ struct ProfileView: View {
                 Spacer()
                 
                 Button {
-                    
+                    createProfile()
                 } label: {
                     DDGButton(title: "Save Profile")
                 }
+                .padding(.bottom)
             }
             .padding(.horizontal)
             .navigationTitle("Profile")
+            .toolbar {
+                Button {
+                    dismissKeyboard()
+                } label: {
+                    Image(systemName: "keyboard.chevron.compact.down")
+                }
+            }
+            .alert(item: $alertItem) { $0.convertToAlert() }
             .sheet(isPresented: $isShowingPhotoPicker) {
                 PhotoPicker(image: $avatar)
             }
+    }
+    
+    func isValidProfile() -> Bool {
+        guard !firstName.isEmpty,
+              !lastName.isEmpty,
+              !bio.isEmpty,
+              avatar != PlaceholderImage.avatar,
+              bio.count < 100 else { return false }
+        
+        return true
+    }
+    
+    func createProfile() {
+        guard isValidProfile() else {
+            alertItem = AlertContext.invalidProfile
+            return
+        }
+        
+        // create profile and send it to CloudKit
     }
 }
 
