@@ -34,10 +34,8 @@ struct PhotoPicker: UIViewControllerRepresentable {
         }
         
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-            if let image = info[.editedImage] as? UIImage,
-               let compressedImageData = image.jpegData(compressionQuality: 0.1),
-               let compressedImage = UIImage(data: compressedImageData) {
-                photoPicker.image = compressedImage
+            if let image = info[.editedImage] as? UIImage {
+                photoPicker.image = image
             }
             photoPicker.presentationMode.wrappedValue.dismiss()
         }
