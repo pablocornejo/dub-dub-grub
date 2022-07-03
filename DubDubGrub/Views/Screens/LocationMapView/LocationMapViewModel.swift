@@ -55,8 +55,8 @@ final class LocationMapViewModel: NSObject, ObservableObject {
     }
     
     func fetchLocations(for locationManager: LocationManager) {
-        CloudKitManager.getLocations { [self] result in
-            DispatchQueue.main.async {
+        CloudKitManager.getLocations { result in
+            DispatchQueue.main.async { [self] in
                 switch result {
                 case .success(let locations):
                     locationManager.locations = locations
