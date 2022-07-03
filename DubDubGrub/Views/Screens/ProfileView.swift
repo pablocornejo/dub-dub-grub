@@ -79,6 +79,7 @@ struct ProfileView: View {
                     Image(systemName: "keyboard.chevron.compact.down")
                 }
             }
+            .onAppear(perform: getProfile)
             .alert(item: $alertItem) { $0.convertToAlert() }
             .sheet(isPresented: $isShowingPhotoPicker) {
                 PhotoPicker(image: $avatar)
@@ -130,6 +131,32 @@ struct ProfileView: View {
                 }
                 
                 CKContainer.default().publicCloudDatabase.add(operation)
+            }
+        }
+    }
+    
+    func getProfile() {
+        CKContainer.default().fetchUserRecordID { recordID, error in
+            guard let recordID = recordID, error == nil else { return print(error!.localizedDescription) }
+            
+            CKContainer.default().publicCloudDatabase.fetch(withRecordID: recordID) { userRecord, error in
+                guard let userRecord = userRecord, error == nil else { return print(error!.localizedDescription) }
+                
+                let profileRecordReference = userRecord["userProfile"] as! CKRecord.Reference
+                let profileRecordID = profileRecordReference.recordID
+                
+                CKContainer.default().publicCloudDatabase.fetch(withRecordID: profileRecordID) { profileRecord, error in
+                    guard let profileRecord = profileRecord, error == nil else { return print(error!.localizedDescription) }
+                    
+                    DispatchQueue.main.async {
+                        let profile = DDGProfile(record: profileRecord)
+                        firstName = profile.firstName
+                        lastName = profile.lastName
+                        companyName = profile.companyName
+                        bio = profile.bio
+                        avatar = profile.createAvatarImage()
+                    }
+                }
             }
         }
     }
