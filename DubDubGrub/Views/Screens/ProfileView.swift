@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CloudKit
 
 struct ProfileView: View {
     @State private var firstName = ""
@@ -100,7 +101,37 @@ struct ProfileView: View {
             return
         }
         
-        // create profile and send it to CloudKit
+        // create CKRecord from profile view
+        let profileRecord = CKRecord(recordType: RecordType.profile)
+        profileRecord[DDGProfile.kFirstName] = firstName
+        profileRecord[DDGProfile.kLastName] = lastName
+        profileRecord[DDGProfile.kAvatar] = avatar.convertToCKAsset()
+        profileRecord[DDGProfile.kCompanyName] = companyName
+        profileRecord[DDGProfile.kBio] = bio
+        
+        // get UserRecordID from container
+        CKContainer.default().fetchUserRecordID { recordID, error in
+            guard let recordID = recordID, error == nil else { return print(error!.localizedDescription) }
+            
+            
+            //  get UserRecord from public database
+            CKContainer.default().publicCloudDatabase.fetch(withRecordID: recordID) { userRecord, error in
+                guard let userRecord = userRecord, error == nil else { return print(error!.localizedDescription) }
+                
+                // create reference on user record to the DDGProfile
+                userRecord["userProfile"] = CKRecord.Reference(recordID: profileRecord.recordID,
+                                                               action: .none)
+                
+                // create CKOperation to save user and profile records
+                let operation = CKModifyRecordsOperation(recordsToSave: [userRecord, profileRecord])
+                operation.modifyRecordsCompletionBlock = { savedRecords, _, error in
+                    guard let savedRecords = savedRecords, error == nil  else { return print(error!.localizedDescription) }
+                    print("Records saved: ", savedRecords)
+                }
+                
+                CKContainer.default().publicCloudDatabase.add(operation)
+            }
+        }
     }
 }
 
