@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		64D3936E2871518800087DDA /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D3936D2871518800087DDA /* ProfileViewModel.swift */; };
 		CF0BA6782660785A004FBDF7 /* DDGButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0BA6772660785A004FBDF7 /* DDGButton.swift */; };
 		CF1D954727756BA6001F7D50 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1D954627756BA6001F7D50 /* PhotoPicker.swift */; };
 		CF210B542665A9FE00D7A680 /* DDGLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF210B532665A9FE00D7A680 /* DDGLocation.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		64D3936D2871518800087DDA /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		CF0BA6772660785A004FBDF7 /* DDGButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDGButton.swift; sourceTree = "<group>"; };
 		CF1D954627756BA6001F7D50 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		CF210B532665A9FE00D7A680 /* DDGLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDGLocation.swift; sourceTree = "<group>"; };
@@ -85,6 +87,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		64D3936C2871516900087DDA /* ProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				CF415272265B1D9A00266F26 /* ProfileView.swift */,
+				64D3936D2871518800087DDA /* ProfileViewModel.swift */,
+			);
+			path = ProfileView;
+			sourceTree = "<group>";
+		};
 		CF0BA67926607A4E004FBDF7 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -99,11 +110,11 @@
 		CF0BA67A26607B8F004FBDF7 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				64D3936C2871516900087DDA /* ProfileView */,
 				CF210B602666691A00D7A680 /* LocationMapView */,
 				CF41526C265B1D3200266F26 /* AppTabView.swift */,
 				CF415270265B1D8A00266F26 /* LocationListView.swift */,
 				CF415274265B41F000266F26 /* LocationDetailView.swift */,
-				CF415272265B1D9A00266F26 /* ProfileView.swift */,
 				CF303E58268950B90009A706 /* OnboardingView.swift */,
 			);
 			path = Screens;
@@ -315,6 +326,7 @@
 				CF415258265B198900266F26 /* DubDubGrubApp.swift in Sources */,
 				CF210B5D26665D1B00D7A680 /* Constants.swift in Sources */,
 				CF9D9FED266963FF008ADFFF /* CKAsset+Ext.swift in Sources */,
+				64D3936E2871518800087DDA /* ProfileViewModel.swift in Sources */,
 				CF2B811F265FD151001E1916 /* CustomModifiers.swift in Sources */,
 				CF41526F265B1D6E00266F26 /* LocationMapView.swift in Sources */,
 				CF415271265B1D8A00266F26 /* LocationListView.swift in Sources */,
