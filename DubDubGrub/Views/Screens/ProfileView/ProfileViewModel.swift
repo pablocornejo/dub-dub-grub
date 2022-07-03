@@ -19,6 +19,8 @@ final class ProfileViewModel: ObservableObject {
     @Published var isLoading = false
     @Published var alertItem: AlertItem?
     
+    private var existingProfileRecord: CKRecord?
+    
     func isValidProfile() -> Bool {
         guard !firstName.isEmpty,
               !lastName.isEmpty,
@@ -52,7 +54,9 @@ final class ProfileViewModel: ObservableObject {
             DispatchQueue.main.async { [self] in
                 isLoading = false
                 switch result {
-                case .success(_):
+                case .success(let records):
+                    existingProfileRecord = records.first { $0.recordType == RecordType.profile }
+                    
                     alertItem = AlertContext.createProfileSuccess
                     break
                 case .failure(_):
@@ -79,6 +83,8 @@ final class ProfileViewModel: ObservableObject {
                 isLoading = false
                 switch result {
                 case .success(let profileRecord):
+                    existingProfileRecord = profileRecord
+                    
                     let profile = DDGProfile(record: profileRecord)
                     firstName = profile.firstName
                     lastName = profile.lastName
@@ -102,6 +108,42 @@ final class ProfileViewModel: ObservableObject {
                 companyName = profile.companyName
                 bio = profile.bio
                 avatar = profile.createAvatarImage()
+            }
+        }
+    }
+    
+    func updateProfile() {
+        guard isValidProfile() else {
+            alertItem = AlertContext.invalidProfile
+            return
+        }
+        
+        guard let profileRecord = existingProfileRecord else {
+            alertItem = AlertContext.unableToGetProfile
+            return
+        }
+        
+        profileRecord[DDGProfile.kFirstName] = firstName
+        profileRecord[DDGProfile.kLastName] = lastName
+        profileRecord[DDGProfile.kAvatar] = avatar.convertToCKAsset()
+        profileRecord[DDGProfile.kCompanyName] = companyName
+        profileRecord[DDGProfile.kBio] = bio
+        
+        isLoading = true
+        CloudKitManager.shared.save(record: profileRecord) { result in
+            DispatchQueue.main.async { [self] in
+                isLoading = false
+                
+                switch result {
+                case .success(let record):
+                    existingProfileRecord = record
+                    
+                    alertItem = AlertContext.updateProfileSuccess
+                    break
+                case .failure(_):
+                    alertItem = AlertContext.updateProfileFailure
+                    break
+                }
             }
         }
     }

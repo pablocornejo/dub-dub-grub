@@ -41,18 +41,26 @@ enum AlertContext {
                                           dismissButton: .default(Text("OK")))
     
     static let noUserRecord = AlertItem(title: Text("No User Record"),
-                                          message: Text("You must log into iCloud on your phone in order to utilize Dub Dub Grub profile. Please log in on your phone's settings screen."),
-                                          dismissButton: .default(Text("OK")))
+                                        message: Text("You must log into iCloud on your phone in order to utilize Dub Dub Grub profile. Please log in on your phone's settings screen."),
+                                        dismissButton: .default(Text("OK")))
     
     static let createProfileSuccess = AlertItem(title: Text("Profile Created Successfully!"),
-                                          message: Text("Your profile has successfully been created."),
-                                          dismissButton: .default(Text("OK")))
+                                                message: Text("Your profile has successfully been created."),
+                                                dismissButton: .default(Text("OK")))
     
     static let createProfileFailure = AlertItem(title: Text("Failed to Create Profile"),
-                                          message: Text("We were unable to create your profile at this time.\nPlease try again later or contact customer support if this persists."),
-                                          dismissButton: .default(Text("OK")))
+                                                message: Text("We were unable to create your profile at this time.\nPlease try again later or contact customer support if this persists."),
+                                                dismissButton: .default(Text("OK")))
     
     static let unableToGetProfile = AlertItem(title: Text("Unable To Retrieve Profile"),
-                                          message: Text("We were unable to retrieve your profile at this time.\nPlease check your internet connection and try again later or contact customer support if this persists."),
-                                          dismissButton: .default(Text("OK")))
+                                              message: Text("We were unable to retrieve your profile at this time.\nPlease check your internet connection and try again later or contact customer support if this persists."),
+                                              dismissButton: .default(Text("OK")))
+    
+    static let updateProfileSuccess = AlertItem(title: Text("Profile Updated Successfully!"),
+                                                message: Text("Your profile was updated successfully."),
+                                                dismissButton: .default(Text("OK")))
+    
+    static let updateProfileFailure = AlertItem(title: Text("Profile Updated Failed"),
+                                                message: Text("We were unable to create your profile at this time.\nPlease try again later."),
+                                                dismissButton: .default(Text("OK")))
 }
