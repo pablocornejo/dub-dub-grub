@@ -39,4 +39,20 @@ enum AlertContext {
     static let invalidProfile = AlertItem(title: Text("Invalid Profile"),
                                           message: Text("All fields are required as well as a profile photo. Your bio must be <100 characters.\nPlease try again."),
                                           dismissButton: .default(Text("OK")))
+    
+    static let noUserRecord = AlertItem(title: Text("No User Record"),
+                                          message: Text("You must log into iCloud on your phone in order to utilize Dub Dub Grub profile. Please log in on your phone's settings screen."),
+                                          dismissButton: .default(Text("OK")))
+    
+    static let createProfileSuccess = AlertItem(title: Text("Profile Created Successfully!"),
+                                          message: Text("Your profile has successfully been created."),
+                                          dismissButton: .default(Text("OK")))
+    
+    static let createProfileFailure = AlertItem(title: Text("Failed to Create Profile"),
+                                          message: Text("We were unable to create your profile at this time.\nPlease try again later or contact customer support if this persists."),
+                                          dismissButton: .default(Text("OK")))
+    
+    static let unableToGetProfile = AlertItem(title: Text("Unable To Retrieve Profile"),
+                                          message: Text("We were unable to retrieve your profile at this time.\nPlease check your internet connection and try again later or contact customer support if this persists."),
+                                          dismissButton: .default(Text("OK")))
 }
