@@ -8,20 +8,20 @@
 import SwiftUI
 
 struct LocationDetailView: View {
-    let location: DDGLocation
-    let columns = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
+    
+    @ObservedObject var viewModel: LocationDetailViewModel // TODO: understand observed vs state object
     
     var body: some View {
         VStack(spacing: 16) {
-            BannerImage(image: location.image(for: .banner))
+            BannerImage(image: viewModel.location.image(for: .banner))
             
             HStack {
-                AddressView(address: location.address)
+                AddressView(address: viewModel.location.address)
                 Spacer()
             }
             .padding(.horizontal)
             
-            DescriptionView(text: location.description)
+            DescriptionView(text: viewModel.location.description)
             
             ZStack {
                 Capsule()
@@ -30,21 +30,21 @@ struct LocationDetailView: View {
                 
                 HStack {
                     Button {
-                        
+                        viewModel.getDirectionsToLocation()
                     } label: {
                         LocationActionButton(color: .brandPrimary, imageName: "location.fill")
                     }
                     
                     Spacer()
                     
-                    Link(destination: URL(string: location.websiteURL)!) {
+                    Link(destination: URL(string: viewModel.location.websiteURL)!) {
                         LocationActionButton(color: .brandPrimary, imageName: "network")
                     }
                     
                     Spacer()
                     
                     Button {
-                        
+                        viewModel.callLocation()
                     } label: {
                         LocationActionButton(color: .brandPrimary, imageName: "phone.fill")
                     }
@@ -66,7 +66,7 @@ struct LocationDetailView: View {
                 .font(.title2)
             
             ScrollView {
-                LazyVGrid(columns: columns) {
+                LazyVGrid(columns: viewModel.columns) {
                     FirstNameAvatarView(firstName: "Pablo")
                     FirstNameAvatarView(firstName: "Pablo")
                     FirstNameAvatarView(firstName: "Pablo")
@@ -77,7 +77,8 @@ struct LocationDetailView: View {
                 }
             }
         }
-        .navigationTitle(location.name)
+        .alert(item: $viewModel.alertItem) { $0.convertToAlert() }
+        .navigationTitle(viewModel.location.name)
         .navigationBarTitleDisplayMode(.inline)
     }
 }
@@ -85,7 +86,7 @@ struct LocationDetailView: View {
 struct LocationDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            LocationDetailView(location: DDGLocation(record: MockData.location))
+            LocationDetailView(viewModel: .init(location: .init(record: MockData.location)))
                 .preferredColorScheme(.dark)
         }
     }

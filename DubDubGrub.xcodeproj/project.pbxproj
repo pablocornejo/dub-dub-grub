@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		641CF72D28724E10004A8445 /* LocationDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641CF72C28724E10004A8445 /* LocationDetailViewModel.swift */; };
 		64D3936E2871518800087DDA /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D3936D2871518800087DDA /* ProfileViewModel.swift */; };
 		64D393702871C4C400087DDA /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D3936F2871C4C400087DDA /* LoadingView.swift */; };
 		CF0BA6782660785A004FBDF7 /* DDGButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0BA6772660785A004FBDF7 /* DDGButton.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		641CF72C28724E10004A8445 /* LocationDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailViewModel.swift; sourceTree = "<group>"; };
 		64D3936D2871518800087DDA /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		64D3936F2871C4C400087DDA /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		CF0BA6772660785A004FBDF7 /* DDGButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDGButton.swift; sourceTree = "<group>"; };
@@ -89,6 +91,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		641CF72B28724DE8004A8445 /* LocationDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				CF415274265B41F000266F26 /* LocationDetailView.swift */,
+				641CF72C28724E10004A8445 /* LocationDetailViewModel.swift */,
+			);
+			path = LocationDetailView;
+			sourceTree = "<group>";
+		};
 		64D3936C2871516900087DDA /* ProfileView */ = {
 			isa = PBXGroup;
 			children = (
@@ -112,11 +123,11 @@
 		CF0BA67A26607B8F004FBDF7 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				641CF72B28724DE8004A8445 /* LocationDetailView */,
 				64D3936C2871516900087DDA /* ProfileView */,
 				CF210B602666691A00D7A680 /* LocationMapView */,
 				CF41526C265B1D3200266F26 /* AppTabView.swift */,
 				CF415270265B1D8A00266F26 /* LocationListView.swift */,
-				CF415274265B41F000266F26 /* LocationDetailView.swift */,
 				CF303E58268950B90009A706 /* OnboardingView.swift */,
 			);
 			path = Screens;
@@ -354,6 +365,7 @@
 				CF303E59268950B90009A706 /* OnboardingView.swift in Sources */,
 				CF1D954727756BA6001F7D50 /* PhotoPicker.swift in Sources */,
 				CF303E5E2689574B0009A706 /* XDismissButton.swift in Sources */,
+				641CF72D28724E10004A8445 /* LocationDetailViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
