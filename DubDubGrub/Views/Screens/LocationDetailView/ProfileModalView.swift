@@ -8,24 +8,27 @@
 import SwiftUI
 
 struct ProfileModalView: View {
+    
+    let profile: DDGProfile
+    
     var body: some View {
         ZStack {
             VStack {
                 Spacer().frame(height: 60)
                 
-                Text("Pablo Cornejo")
+                Text(profile.firstName + " " + profile.lastName)
                     .bold()
                     .font(.title2)
                     .lineLimit(1)
                     .minimumScaleFactor(0.8)
                 
-                Text("Test Company")
+                Text(profile.companyName)
                     .fontWeight(.semibold)
                     .lineLimit(1)
                     .minimumScaleFactor(0.8)
                     .foregroundColor(.secondary)
                 
-                Text("This is my sample bio. Lets keep typink to see how long we can make this, how does the padding look.")
+                Text(profile.bio)
                     .lineLimit(3)
                     .minimumScaleFactor(0.8)
                     .padding()
@@ -42,7 +45,7 @@ struct ProfileModalView: View {
                 alignment: .topTrailing
             )
             
-            Image(uiImage: PlaceholderImage.avatar)
+            Image(uiImage: profile.createAvatarImage())
                 .resizable()
                 .scaledToFill()
                 .frame(width: 110, height: 110)
@@ -55,6 +58,6 @@ struct ProfileModalView: View {
 
 struct ProfileModalView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileModalView()
+        ProfileModalView(profile: .init(record: MockData.profile))
     }
 }
