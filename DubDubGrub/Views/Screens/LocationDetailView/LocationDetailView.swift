@@ -53,7 +53,7 @@ struct LocationDetailView: View {
                         Spacer()
                         
                         Button {
-                            
+                            viewModel.updateCheckInStatus(to: .checkedOut) // TODO: make check in status dynamic
                         } label: {
                             LocationActionButton(color: .brandPrimary, imageName: "person.fill.checkmark")
                         }
