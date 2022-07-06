@@ -10,6 +10,7 @@ import SwiftUI
 struct ProfileModalView: View {
     
     let profile: DDGProfile
+    @Binding var isShowingProfileModal: Bool
     
     var body: some View {
         ZStack {
@@ -38,7 +39,7 @@ struct ProfileModalView: View {
             .cornerRadius(16)
             .overlay(
                 Button {
-                    // dismiss
+                    withAnimation { isShowingProfileModal = false }
                 } label: {
                     XDismissButton()
                 },
@@ -58,6 +59,6 @@ struct ProfileModalView: View {
 
 struct ProfileModalView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileModalView(profile: .init(record: MockData.profile))
+        ProfileModalView(profile: .init(record: MockData.profile), isShowingProfileModal: .constant(true))
     }
 }

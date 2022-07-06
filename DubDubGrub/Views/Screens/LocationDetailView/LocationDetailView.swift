@@ -12,69 +12,83 @@ struct LocationDetailView: View {
     @ObservedObject var viewModel: LocationDetailViewModel // TODO: understand observed vs state object
     
     var body: some View {
-        VStack(spacing: 16) {
-            BannerImage(image: viewModel.location.image(for: .banner))
-            
-            HStack {
-                AddressView(address: viewModel.location.address)
-                Spacer()
-            }
-            .padding(.horizontal)
-            
-            DescriptionView(text: viewModel.location.description)
-            
-            ZStack {
-                Capsule()
-                    .frame(height: 80)
-                    .foregroundColor(Color(.secondarySystemBackground))
+        ZStack {
+            VStack(spacing: 16) {
+                BannerImage(image: viewModel.location.image(for: .banner))
                 
                 HStack {
-                    Button {
-                        viewModel.getDirectionsToLocation()
-                    } label: {
-                        LocationActionButton(color: .brandPrimary, imageName: "location.fill")
-                    }
-                    
+                    AddressView(address: viewModel.location.address)
                     Spacer()
+                }
+                .padding(.horizontal)
+                
+                DescriptionView(text: viewModel.location.description)
+                
+                ZStack {
+                    Capsule()
+                        .frame(height: 80)
+                        .foregroundColor(Color(.secondarySystemBackground))
                     
-                    Link(destination: URL(string: viewModel.location.websiteURL)!) {
-                        LocationActionButton(color: .brandPrimary, imageName: "network")
-                    }
-                    
-                    Spacer()
-                    
-                    Button {
-                        viewModel.callLocation()
-                    } label: {
-                        LocationActionButton(color: .brandPrimary, imageName: "phone.fill")
-                    }
-                    
-                    Spacer()
-                    
-                    Button {
+                    HStack {
+                        Button {
+                            viewModel.getDirectionsToLocation()
+                        } label: {
+                            LocationActionButton(color: .brandPrimary, imageName: "location.fill")
+                        }
                         
-                    } label: {
-                        LocationActionButton(color: .brandPrimary, imageName: "person.fill.checkmark")
+                        Spacer()
+                        
+                        Link(destination: URL(string: viewModel.location.websiteURL)!) {
+                            LocationActionButton(color: .brandPrimary, imageName: "network")
+                        }
+                        
+                        Spacer()
+                        
+                        Button {
+                            viewModel.callLocation()
+                        } label: {
+                            LocationActionButton(color: .brandPrimary, imageName: "phone.fill")
+                        }
+                        
+                        Spacer()
+                        
+                        Button {
+                            
+                        } label: {
+                            LocationActionButton(color: .brandPrimary, imageName: "person.fill.checkmark")
+                        }
+                    }
+                    .padding(.horizontal, 10)
+                }
+                .padding(.horizontal)
+                
+                Text("Who's Here?")
+                    .bold()
+                    .font(.title2)
+                
+                ScrollView {
+                    LazyVGrid(columns: viewModel.columns) {
+                        FirstNameAvatarView(firstName: "Pablo")
+                            .onTapGesture {
+                                viewModel.isShowingProfileModal = true
+                            }
                     }
                 }
-                .padding(.horizontal, 10)
             }
-            .padding(.horizontal)
             
-             Text("Who's Here?")
-                .bold()
-                .font(.title2)
-            
-            ScrollView {
-                LazyVGrid(columns: viewModel.columns) {
-                    FirstNameAvatarView(firstName: "Pablo")
-                    FirstNameAvatarView(firstName: "Pablo")
-                    FirstNameAvatarView(firstName: "Pablo")
-                    FirstNameAvatarView(firstName: "Pablo")
-                    FirstNameAvatarView(firstName: "Pablo")
-                    FirstNameAvatarView(firstName: "Pablo")
-                    FirstNameAvatarView(firstName: "Pablo")
-                }
+            if viewModel.isShowingProfileModal {
+                Color(.systemBackground)
+                    .ignoresSafeArea()
+                    .opacity(0.9)
+//                    .transition(.opacity).animation(.easeOut) // doesn't work with this
+                    .transition(AnyTransition.opacity.animation(.easeOut(duration: 0.35)))
+                    .zIndex(1)
+                
+                ProfileModalView(profile: DDGProfile(record: MockData.profile),
+                                 isShowingProfileModal: $viewModel.isShowingProfileModal)
+                    .transition(.opacity.combined(with: .slide))
+                    .animation(.easeOut)
+                    .zIndex(2)
             }
         }
         .alert(item: $viewModel.alertItem) { $0.convertToAlert() }
