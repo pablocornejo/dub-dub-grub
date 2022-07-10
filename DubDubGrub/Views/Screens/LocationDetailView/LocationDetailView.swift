@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LocationDetailView: View {
     
-    @ObservedObject var viewModel: LocationDetailViewModel // TODO: understand observed vs state object
+    @ObservedObject var viewModel: LocationDetailViewModel
     
     var body: some View {
         ZStack {
@@ -53,7 +53,7 @@ struct LocationDetailView: View {
                         Spacer()
                         
                         Button {
-                            viewModel.updateCheckInStatus(to: .checkedOut) // TODO: make check in status dynamic
+                            viewModel.updateCheckInStatus(to: viewModel.isCheckedIn ? .checkedOut : .checkedIn)
                         } label: {
                             LocationActionButton(color: .brandPrimary, imageName: "person.fill.checkmark")
                         }
@@ -68,10 +68,12 @@ struct LocationDetailView: View {
                 
                 ScrollView {
                     LazyVGrid(columns: viewModel.columns) {
-                        FirstNameAvatarView(firstName: "Pablo")
-                            .onTapGesture {
-                                viewModel.isShowingProfileModal = true
-                            }
+                        ForEach(viewModel.checkedInProfiles) { profile in
+                            FirstNameAvatarView(profile: profile)
+                                .onTapGesture {
+                                    viewModel.isShowingProfileModal = true
+                                }
+                        }
                     }
                 }
             }
@@ -91,6 +93,7 @@ struct LocationDetailView: View {
                     .zIndex(2)
             }
         }
+        .onAppear { viewModel.getCheckedInProfiles() }
         .alert(item: $viewModel.alertItem) { $0.convertToAlert() }
         .navigationTitle(viewModel.location.name)
         .navigationBarTitleDisplayMode(.inline)
@@ -126,13 +129,13 @@ struct LocationActionButton: View {
 }
 
 struct FirstNameAvatarView: View {
-    let firstName: String
+    let profile: DDGProfile
     
     var body: some View {
         VStack {
-            AvatarView(image: PlaceholderImage.avatar, size: 64)
+            AvatarView(image: profile.createAvatarImage(), size: 64)
             
-            Text(firstName)
+            Text(profile.firstName)
                 .bold()
                 .lineLimit(1)
                 .minimumScaleFactor(0.8)
