@@ -43,6 +43,25 @@ final class LocationDetailViewModel: ObservableObject {
         UIApplication.shared.open(url)
     }
     
+    func getCheckedInStatus() {
+        guard let profileRecordID = CloudKitManager.shared.profileRecordID else { return }
+        
+        CloudKitManager.shared.fetchRecord(with: profileRecordID) { [self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let profileRecord):
+                    if let reference = profileRecord[DDGProfile.kIsCheckedIn] as? CKRecord.Reference {
+                        self.isCheckedIn = reference.recordID == self.location.id
+                    } else {
+                        self.isCheckedIn = false
+                    }
+                case .failure(let error):
+                    print("Failed to fetch record:", error)
+                }
+            }
+        }
+    }
+    
     func updateCheckInStatus(to checkInStatus: CheckInStatus) {
         guard let profileRecordID = CloudKitManager.shared.profileRecordID else {
             // show alert

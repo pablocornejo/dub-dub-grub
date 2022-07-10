@@ -52,10 +52,14 @@ struct LocationDetailView: View {
                         
                         Spacer()
                         
-                        Button {
-                            viewModel.updateCheckInStatus(to: viewModel.isCheckedIn ? .checkedOut : .checkedIn)
-                        } label: {
-                            LocationActionButton(color: .brandPrimary, imageName: "person.fill.checkmark")
+                        if CloudKitManager.shared.profileRecordID != nil {
+                            Button {
+                                viewModel.updateCheckInStatus(to: viewModel.isCheckedIn ? .checkedOut : .checkedIn)
+                            } label: {
+                                let isCheckedIn = viewModel.isCheckedIn
+                                LocationActionButton(color: isCheckedIn ? .grubRed : .brandPrimary,
+                                                     imageName: isCheckedIn ? "person.fill.xmark" : "person.fill.checkmark")
+                            }
                         }
                     }
                     .padding(.horizontal, 10)
@@ -107,7 +111,10 @@ struct LocationDetailView: View {
                     .zIndex(2)
             }
         }
-        .onAppear { viewModel.getCheckedInProfiles() }
+        .onAppear {
+            viewModel.getCheckedInProfiles()
+            viewModel.getCheckedInStatus()
+        }
         .alert(item: $viewModel.alertItem) { $0.convertToAlert() }
         .navigationTitle(viewModel.location.name)
         .navigationBarTitleDisplayMode(.inline)
