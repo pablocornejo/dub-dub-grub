@@ -55,8 +55,8 @@ final class LocationDetailViewModel: ObservableObject {
                     } else {
                         self.isCheckedIn = false
                     }
-                case .failure(let error):
-                    print("Failed to fetch record:", error)
+                case .failure(_):
+                    self.alertItem = AlertContext.unableToGetCheckInStatus
                 }
             }
         }
@@ -64,7 +64,7 @@ final class LocationDetailViewModel: ObservableObject {
     
     func updateCheckInStatus(to checkInStatus: CheckInStatus) {
         guard let profileRecordID = CloudKitManager.shared.profileRecordID else {
-            // show alert
+            alertItem = AlertContext.unableToGetProfile
             return
         }
         
@@ -91,15 +91,13 @@ final class LocationDetailViewModel: ObservableObject {
                             }
                             
                             isCheckedIn = checkInStatus == .checkedIn
-                            
-                            print("✅ Checked in/out successfully")
-                        case .failure(let error):
-                            print("❌ Error saving record: \(error)")
+                        case .failure(_):
+                            alertItem = AlertContext.unableToCheckInOrOut
                         }
                     }
                 }
-            case .failure(let error):
-                print("❌ Error saving record: \(error)")
+            case .failure(_):
+                alertItem = AlertContext.unableToCheckInOrOut
             }
         }
     }
@@ -112,7 +110,7 @@ final class LocationDetailViewModel: ObservableObject {
                 case .success(let profiles):
                     self.checkedInProfiles = profiles
                 case .failure(let error):
-                    print("Error fetching checked in profiles:", error)
+                    alertItem = AlertContext.unableToGetCheckedInProfiles
                 }
                 isLoading = false
             }
