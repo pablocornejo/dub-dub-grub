@@ -45,11 +45,18 @@ struct ProfileView: View {
                     
                     Spacer()
                     
-                    Label("Check Out", systemImage: "mappin.and.ellipse")
-                        .font(.subheadline)
-                        .foregroundColor(.white)
-                        .padding(8)
-                        .background(RoundedRectangle(cornerRadius: 8).foregroundColor(Color(.systemPink)))
+                    if viewModel.isCheckedIn {
+                        Button {
+                            viewModel.checkOut()
+                        } label: {
+                            Label("Check Out", systemImage: "mappin.and.ellipse")
+                                .font(.subheadline)
+                                .foregroundColor(.white)
+                                .padding(8)
+                                .background(Color.grubRed)
+                                .cornerRadius(8)
+                        }                        
+                    }
                 }
                 
                 TextEditor(text: $viewModel.bio)
@@ -78,7 +85,10 @@ struct ProfileView: View {
                 Image(systemName: "keyboard.chevron.compact.down")
             }
         }
-        .onAppear(perform: viewModel.getProfile)
+        .onAppear {
+            viewModel.getProfile()
+            viewModel.getCheckedInStatus()
+        }
         .alert(item: $viewModel.alertItem) { $0.convertToAlert() }
         .sheet(isPresented: $viewModel.isShowingPhotoPicker) {
             PhotoPicker(image: $viewModel.avatar)
