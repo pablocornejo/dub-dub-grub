@@ -7,8 +7,13 @@
 
 import SwiftUI
 
+private extension CGFloat {
+    static let avatarSize: CGFloat = 35
+}
+
 struct LocationCell: View {
     let location: DDGLocation
+    let avatars: [UIImage]
     
     var body: some View {
         HStack {
@@ -26,11 +31,22 @@ struct LocationCell: View {
                     .lineLimit(1)
                     .minimumScaleFactor(0.8)
                 
-                HStack {
-                    AvatarView(image: PlaceholderImage.avatar, size: 36)
-                    AvatarView(image: PlaceholderImage.avatar, size: 36)
-                    AvatarView(image: PlaceholderImage.avatar, size: 36)
-                    AvatarView(image: PlaceholderImage.avatar, size: 36)
+                if avatars.isEmpty {
+                    Text("Nobody's checked in")
+                        .fontWeight(.semibold)
+                        .foregroundColor(.secondary)
+                        .padding(.top, 2)
+                } else {
+                    HStack {
+                        ForEach(avatars.indices, id: \.self) { index in
+                            let maxAvatars = 3
+                            if index < maxAvatars {
+                                AvatarView(image: avatars[index], size: .avatarSize)
+                            } else if index == maxAvatars {
+                                AdditionalProfilesView(number: avatars.count - 4)
+                            }
+                        }
+                    }
                 }
             }
             .padding(.leading)
@@ -40,6 +56,20 @@ struct LocationCell: View {
 
 struct LocationCell_Previews: PreviewProvider {
     static var previews: some View {
-        LocationCell(location: DDGLocation(record: MockData.location))
+        LocationCell(location: DDGLocation(record: MockData.location), avatars: [])
+    }
+}
+
+struct AdditionalProfilesView: View {
+    
+    let number: Int
+    
+    var body: some View {
+        Text("+\(number)")
+            .font(.system(size: 14, weight: .semibold))
+            .frame(width: .avatarSize, height: .avatarSize)
+            .foregroundColor(.white)
+            .background(Color.brandPrimary)
+            .clipShape(Circle())
     }
 }

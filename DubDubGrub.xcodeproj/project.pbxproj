@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		64125655288467E800D48D15 /* LocationListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64125654288467E800D48D15 /* LocationListViewModel.swift */; };
 		641CF72D28724E10004A8445 /* LocationDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641CF72C28724E10004A8445 /* LocationDetailViewModel.swift */; };
 		64C7CBAB2874FC4F00AFF1DE /* ProfileModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C7CBAA2874FC4F00AFF1DE /* ProfileModalView.swift */; };
 		64D3936E2871518800087DDA /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D3936D2871518800087DDA /* ProfileViewModel.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		64125654288467E800D48D15 /* LocationListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListViewModel.swift; sourceTree = "<group>"; };
 		641CF72C28724E10004A8445 /* LocationDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailViewModel.swift; sourceTree = "<group>"; };
 		64C7CBAA2874FC4F00AFF1DE /* ProfileModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModalView.swift; sourceTree = "<group>"; };
 		64D3936D2871518800087DDA /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
@@ -93,6 +95,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		64125653288467B300D48D15 /* LocationListView */ = {
+			isa = PBXGroup;
+			children = (
+				CF415270265B1D8A00266F26 /* LocationListView.swift */,
+				64125654288467E800D48D15 /* LocationListViewModel.swift */,
+			);
+			path = LocationListView;
+			sourceTree = "<group>";
+		};
 		641CF72B28724DE8004A8445 /* LocationDetailView */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,11 +137,11 @@
 		CF0BA67A26607B8F004FBDF7 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				64125653288467B300D48D15 /* LocationListView */,
 				641CF72B28724DE8004A8445 /* LocationDetailView */,
 				64D3936C2871516900087DDA /* ProfileView */,
 				CF210B602666691A00D7A680 /* LocationMapView */,
 				CF41526C265B1D3200266F26 /* AppTabView.swift */,
-				CF415270265B1D8A00266F26 /* LocationListView.swift */,
 				CF303E58268950B90009A706 /* OnboardingView.swift */,
 			);
 			path = Screens;
@@ -349,6 +360,7 @@
 				CF41526F265B1D6E00266F26 /* LocationMapView.swift in Sources */,
 				CF415271265B1D8A00266F26 /* LocationListView.swift in Sources */,
 				CF303E5B2689522B0009A706 /* LogoView.swift in Sources */,
+				64125655288467E800D48D15 /* LocationListViewModel.swift in Sources */,
 				CF210B582665AF9300D7A680 /* MockData.swift in Sources */,
 				CF415275265B41F000266F26 /* LocationDetailView.swift in Sources */,
 				CF210B5F2666623A00D7A680 /* AlertItem.swift in Sources */,
