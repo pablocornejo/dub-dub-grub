@@ -78,6 +78,6 @@ enum AlertContext {
                                                 dismissButton: .default(Text("OK")))
     
     static let unableToGetCheckedInProfiles = AlertItem(title: Text("Server Error"),
-                                                        message: Text("We are unable to get users checked into thie location at this time.\nPlease try again."),
+                                                        message: Text("We are unable to get users checked into the location at this time.\nPlease try again."),
                                                         dismissButton: .default(Text("OK")))
 }
