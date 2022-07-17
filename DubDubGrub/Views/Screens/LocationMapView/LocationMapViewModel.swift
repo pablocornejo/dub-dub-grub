@@ -6,6 +6,7 @@
 //
 
 import MapKit
+import CloudKit
 
 final class LocationMapViewModel: ObservableObject {
     
@@ -13,7 +14,7 @@ final class LocationMapViewModel: ObservableObject {
     @Published var region = MKCoordinateRegion(center: .init(latitude: 37.331516, longitude: -121.891054),
                                                             span: .init(latitudeDelta: 0.01, longitudeDelta: 0.01))
     @Published var selectedLocation: DDGLocation?
-    
+    @Published var checkedInProfilesCount: [CKRecord.ID: Int] = [:]
     
     func fetchLocations(for locationManager: LocationManager) {
         CloudKitManager.shared.getLocations { result in
@@ -24,6 +25,20 @@ final class LocationMapViewModel: ObservableObject {
                 case .failure(_):
                     alertItem = AlertContext.unableToGetLocations
                 }                
+            }
+        }
+    }
+    
+    func getCheckedInCounts() {
+        CloudKitManager.shared.getCheckedInProfilesCount { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let checkedInProfilesCount):
+                    self.checkedInProfilesCount = checkedInProfilesCount
+                case .failure(let error):
+                    // show alert
+                    print(error)
+                }
             }
         }
     }

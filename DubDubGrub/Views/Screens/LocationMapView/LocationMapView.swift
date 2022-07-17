@@ -16,7 +16,8 @@ struct LocationMapView: View {
         ZStack(alignment: .top) {
             Map(coordinateRegion: $viewModel.region, showsUserLocation: true, annotationItems: locationManager.locations) { location in
                 MapAnnotation(coordinate: location.location.coordinate, anchorPoint: CGPoint(x: 0.5, y: 0.75)) {
-                    DDGAnnotation(location: location)
+                    DDGAnnotation(location: location,
+                                  count: viewModel.checkedInProfilesCount[location.id, default: 0])
                         .onTapGesture {
                             viewModel.selectedLocation = location
                         }
@@ -42,6 +43,8 @@ struct LocationMapView: View {
             if locationManager.locations.isEmpty {
                 viewModel.fetchLocations(for: locationManager)
             }
+            
+            viewModel.getCheckedInCounts()
         }
     }
 }

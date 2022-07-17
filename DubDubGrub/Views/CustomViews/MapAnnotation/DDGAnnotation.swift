@@ -9,7 +9,8 @@ import SwiftUI
 
 struct DDGAnnotation: View {
     
-    var location: DDGLocation
+    let location: DDGLocation
+    let count: Int
     
     var body: some View {
         VStack {
@@ -24,13 +25,16 @@ struct DDGAnnotation: View {
                     .clipShape(Circle())
                     .offset(y: -11)
                 
-                Text("99")
-                    .font(.system(size: 11, weight: .bold))
-                    .frame(width: 26, height: 18)
-                    .background(Color.grubRed)
-                    .foregroundColor(.white)
-                    .clipShape(Capsule())
-                    .offset(x: 20, y: -28)
+                if count > 0 {
+                    Text(count < 100 ? "\(count)" : "+\(99)")
+                        .font(.system(size: 11, weight: .bold))
+                        .padding(.horizontal, 6)
+                        .frame(height: 18)
+                        .background(Color.grubRed)
+                        .foregroundColor(.white)
+                        .clipShape(Capsule())
+                        .offset(x: 20, y: -28)
+                }
             }
             
             Text(location.name)
@@ -42,6 +46,6 @@ struct DDGAnnotation: View {
 
 struct DDGAnnotation_Previews: PreviewProvider {
     static var previews: some View {
-        DDGAnnotation(location: DDGLocation(record: MockData.location))
+        DDGAnnotation(location: DDGLocation(record: MockData.location), count: 44)
     }
 }
