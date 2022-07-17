@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		64125655288467E800D48D15 /* LocationListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64125654288467E800D48D15 /* LocationListViewModel.swift */; };
+		641256582884851400D48D15 /* MapBalloon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641256572884851400D48D15 /* MapBalloon.swift */; };
 		641CF72D28724E10004A8445 /* LocationDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641CF72C28724E10004A8445 /* LocationDetailViewModel.swift */; };
 		64C7CBAB2874FC4F00AFF1DE /* ProfileModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C7CBAA2874FC4F00AFF1DE /* ProfileModalView.swift */; };
 		64D3936E2871518800087DDA /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D3936D2871518800087DDA /* ProfileViewModel.swift */; };
@@ -45,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		64125654288467E800D48D15 /* LocationListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListViewModel.swift; sourceTree = "<group>"; };
+		641256572884851400D48D15 /* MapBalloon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBalloon.swift; sourceTree = "<group>"; };
 		641CF72C28724E10004A8445 /* LocationDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailViewModel.swift; sourceTree = "<group>"; };
 		64C7CBAA2874FC4F00AFF1DE /* ProfileModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModalView.swift; sourceTree = "<group>"; };
 		64D3936D2871518800087DDA /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
@@ -102,6 +104,14 @@
 				64125654288467E800D48D15 /* LocationListViewModel.swift */,
 			);
 			path = LocationListView;
+			sourceTree = "<group>";
+		};
+		641256562884850000D48D15 /* MapAnnotation */ = {
+			isa = PBXGroup;
+			children = (
+				641256572884851400D48D15 /* MapBalloon.swift */,
+			);
+			path = MapAnnotation;
 			sourceTree = "<group>";
 		};
 		641CF72B28724DE8004A8445 /* LocationDetailView */ = {
@@ -170,6 +180,7 @@
 		CF0BA67D26607C0F004FBDF7 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				641256562884850000D48D15 /* MapAnnotation */,
 				CF1D954527756B72001F7D50 /* UIKit Components */,
 				CF303E5C268957330009A706 /* Buttons */,
 				CF2B811C265F16B8001E1916 /* AvatarView.swift */,
@@ -367,6 +378,7 @@
 				CF210B562665AE0000D7A680 /* DDGProfile.swift in Sources */,
 				CF210B542665A9FE00D7A680 /* DDGLocation.swift in Sources */,
 				CF41526D265B1D3300266F26 /* AppTabView.swift in Sources */,
+				641256582884851400D48D15 /* MapBalloon.swift in Sources */,
 				CF415273265B1D9A00266F26 /* ProfileView.swift in Sources */,
 				CF9D9FEB26687BA0008ADFFF /* LocationManager.swift in Sources */,
 				CF210B622666693400D7A680 /* LocationMapViewModel.swift in Sources */,
