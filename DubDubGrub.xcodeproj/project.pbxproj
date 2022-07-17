@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		64125655288467E800D48D15 /* LocationListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64125654288467E800D48D15 /* LocationListViewModel.swift */; };
 		641256582884851400D48D15 /* MapBalloon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641256572884851400D48D15 /* MapBalloon.swift */; };
+		6412565A288487FE00D48D15 /* DDGAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64125659288487FE00D48D15 /* DDGAnnotation.swift */; };
 		641CF72D28724E10004A8445 /* LocationDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641CF72C28724E10004A8445 /* LocationDetailViewModel.swift */; };
 		64C7CBAB2874FC4F00AFF1DE /* ProfileModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C7CBAA2874FC4F00AFF1DE /* ProfileModalView.swift */; };
 		64D3936E2871518800087DDA /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D3936D2871518800087DDA /* ProfileViewModel.swift */; };
@@ -47,6 +48,7 @@
 /* Begin PBXFileReference section */
 		64125654288467E800D48D15 /* LocationListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListViewModel.swift; sourceTree = "<group>"; };
 		641256572884851400D48D15 /* MapBalloon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBalloon.swift; sourceTree = "<group>"; };
+		64125659288487FE00D48D15 /* DDGAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDGAnnotation.swift; sourceTree = "<group>"; };
 		641CF72C28724E10004A8445 /* LocationDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailViewModel.swift; sourceTree = "<group>"; };
 		64C7CBAA2874FC4F00AFF1DE /* ProfileModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModalView.swift; sourceTree = "<group>"; };
 		64D3936D2871518800087DDA /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				641256572884851400D48D15 /* MapBalloon.swift */,
+				64125659288487FE00D48D15 /* DDGAnnotation.swift */,
 			);
 			path = MapAnnotation;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 				CF210B5F2666623A00D7A680 /* AlertItem.swift in Sources */,
 				CF210B562665AE0000D7A680 /* DDGProfile.swift in Sources */,
 				CF210B542665A9FE00D7A680 /* DDGLocation.swift in Sources */,
+				6412565A288487FE00D48D15 /* DDGAnnotation.swift in Sources */,
 				CF41526D265B1D3300266F26 /* AppTabView.swift in Sources */,
 				641256582884851400D48D15 /* MapBalloon.swift in Sources */,
 				CF415273265B1D9A00266F26 /* ProfileView.swift in Sources */,
