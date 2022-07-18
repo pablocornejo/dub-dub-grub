@@ -11,7 +11,7 @@ struct LogoView: View {
     let frameWidth: CGFloat
     
     var body: some View {
-        Image("ddg-map-logo")
+        Image(decorative: "ddg-map-logo") // decorative makes the image not be included as a voice over item
             .resizable()
             .scaledToFit()
             .frame(width: frameWidth)
