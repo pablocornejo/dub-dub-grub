@@ -90,9 +90,7 @@ struct ProfileView: View {
             viewModel.getCheckedInStatus()
         }
         .alert(item: $viewModel.alertItem) { $0.convertToAlert() }
-        .sheet(isPresented: $viewModel.isShowingPhotoPicker) {
-            PhotoPicker(image: $viewModel.avatar)
-        }
+        .sheet(isPresented: $viewModel.isShowingPhotoPicker) { PhotoPicker(image: $viewModel.avatar) }
     }
 }
 
