@@ -16,8 +16,9 @@ struct LocationListView: View {
             List {
                 ForEach(locationManager.locations) { location in
                     NavigationLink(destination: LocationDetailView(viewModel: .init(location: location))) {
-                        LocationCell(location: location,
-                                     avatars: viewModel.avatars(for: location))
+                        LocationCell(location: location, avatars: viewModel.avatars(for: location))
+                            .accessibilityElement(children: .ignore)
+                            .accessibilityLabel(Text(viewModel.voiceOverSummary(for: location)))
                     }
                 }
             }

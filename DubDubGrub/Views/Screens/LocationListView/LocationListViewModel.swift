@@ -31,4 +31,11 @@ final class LocationListViewModel: ObservableObject {
         checkedInProfiles[location.id, default: []]
             .map { $0.createAvatarImage() }
     }
+    
+    func voiceOverSummary(for location: DDGLocation) -> String {
+        let count = checkedInProfiles[location.id, default: []].count
+        let isPlural = count != 1
+        
+        return "\(location.name), \(count) \(isPlural ? "people" : "person") checked in"
+    }
 }
